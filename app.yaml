@@ -2,5 +2,6 @@
 # env: flex
 # GAE runs on Node 8 by default
 runtime: nodejs8
+service: "stdlog"
 env_variables:
   NODE_ENV: "qat"
