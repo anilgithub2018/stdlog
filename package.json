@@ -1,0 +1,24 @@
+{
+  "name": "stdlog",
+  "version": "1.0.0",
+  "description": "std log",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anilgithub2018/stdlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anilgithub2018/stdlog/issues"
+  },
+  "homepage": "https://github.com/anilgithub2018/stdlog#readme",
+  "dependencies": {
+    "@google-cloud/datastore": "^2.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
