@@ -1,0 +1,2 @@
+# stdlog
+std log
