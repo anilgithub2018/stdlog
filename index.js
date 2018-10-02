@@ -7,6 +7,10 @@ app.use(express.static(__dirname + '/public'));
 
 console.log("entering the app" , "project " , process.env.PROJECT);
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.header('Content-Type', 'application/json');
   res.send(JSON.stringify({value: 1}));
