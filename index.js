@@ -1,11 +1,11 @@
-
+require('./config/config');
 
 const express = require('express')
 const app = express()
 
+app.use(express.static(__dirname + '/public')); 
+
 console.log("entering the app" , "project " , process.env.PROJECT);
-
-
 
 app.get('/', (req, res) => {
   res.header('Content-Type', 'application/json');
