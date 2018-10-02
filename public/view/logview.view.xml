@@ -1,0 +1,29 @@
+<mvc:View controllerName="zstd.zstd_log.controller.logview" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Sign in" labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Email" required="true"/>
+							<Input id="email" value="{oModelUserEntry>/email}"/>
+							<Label text="Password" required="true"/>
+							<Input value="{oModelUserEntry>/password}"></Input>
+						</f:content>
+					</f:SimpleForm>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="Login"           press="onLogin"/>
+						<Button text="Register"        press="onRegister"/>
+						<Button text="Forgot Password" press="onForgot"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
