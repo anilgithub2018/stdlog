@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/anilgithub2018/stdlog#readme",
   "dependencies": {
+    "@google-cloud/datastore": "^2.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3"
   },

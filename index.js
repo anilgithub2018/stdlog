@@ -1,4 +1,5 @@
 require('./config/config');
+var user = require('./routes/userRoute');
 
 const express = require('express')
 const app = express()
@@ -10,6 +11,8 @@ console.log("entering the app" , "project " , process.env.PROJECT);
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/user/',user);
 
 app.get('/', (req, res) => {
   res.header('Content-Type', 'application/json');
