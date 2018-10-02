@@ -6,8 +6,12 @@ console.log("entering the app" , "project " , process.env.PROJECT);
 
 
 
-app.get('/', (req, res) => res.send('Thank you for visiting ' + process.env.PORT  + ' ' + process.env.PROJECT
-        + ' ' + process.env.GOOGLE_CLOUD_PROJECT))
+app.get('/', (req, res) => {
+  res.header('Content-Type', 'application/json');
+  res.send(JSON.stringify({value: 1}));
+}
+        
+        )
 
 app.get('/log', (req, res) => {
   res.status(418).send("Hello I'm a teapot running on Node Standard GAE")
