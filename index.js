@@ -13,8 +13,8 @@ console.log("entering the app" , "project " , process.env.PROJECT);
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var user = require('./routes/userRoute');
-app.use('/user/',user);
+// var user = require('./routes/userRoute');
+// app.use('/user/',user);
 
 app.get('/', (req, res) => res.send('Thank you for visiting ' + process.env.PORT  + ' ' + process.env.PROJECT
         + ' ' + process.env.GOOGLE_CLOUD_PROJECT))
