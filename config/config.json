@@ -1,0 +1,17 @@
+{
+    "test": {
+      "PORT": 3000,
+      "PROJECT":"stdtest2-217119",
+      "SERVICE_URL":"http://localhost:3000"
+    },
+    "development": {
+      "PORT": 3000,
+      "PROJECT":"stdtest2-217119",
+      "SERVICE_URL":"http://localhost:3000"
+    },
+    "qat": {
+      "PROJECT":"stdtest2-217119",
+      "SERVICE_URL":"https://stdtest2-217119.appspot.com/"
+    }
+  }
+  
