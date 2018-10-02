@@ -3,15 +3,15 @@ require('./config/config');
 const express = require('express')
 const app = express()
 
-app.use(express.static(__dirname + '/public')); 
+// app.use(express.static(__dirname + '/public')); 
 
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 
 console.log("entering the app" , "project " , process.env.PROJECT);
 
 
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json()); // support json encoded bodies
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // var user = require('./routes/userRoute');
 // app.use('/user/',user);
