@@ -3,31 +3,32 @@
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true" xmlns="sap.m">
 	<App id="idAppControl">
 		<pages>
-			<Page title="{i18n>title}" >
+			<Page title="{i18n>register}" showNavButton="true" navButtonPress="onNavBack" >
 				<content>
-					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Sign in" labelSpanXL="3" labelSpanL="3"
+					<f:SimpleForm id="SimpleFormRegister" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3"
 						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
 						columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
-							<Label text="Email" required="true"/>
+							<Label text="{i18n>name}" required="true"/>
+							<Input id="name" value="{oModelUserEntry>/name}"
+									valueState="{mandatorySignup>/name}"
+									valueStateText="{i18n>EnterValue}"
+									/>							
+							<Label text="{i18n>email}" required="true"/>
 							<Input id="email" value="{oModelUserEntry>/email}"
-									valueState="{mandatoryLogin>/email}"
+									valueState="{mandatorySignup>/email}"
 									valueStateText="{i18n>EnterValue}"
-									type="Email"
-									/>
-							<Label text="Password" required="true"/>
+									/>							
+							<Label text="{i18n>password}" required="true"/>
 							<Input value="{oModelUserEntry>/password}"
-									valueState="{mandatoryLogin>/password}"
+									valueState="{mandatorySignup>/password}"
 									valueStateText="{i18n>EnterValue}"
-									type="Password"
-									/>
+									/>							
 						</f:content>
 					</f:SimpleForm>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button text="Login"           press="onLogin"/>
-						<Button text="Register"        press="onRegister"/>
-						<Button text="Forgot Password" press="onForgot"/>
+						<Button text="{i18n>signup}"  press="onSignUp"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</content>

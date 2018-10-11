@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"zstd/zstd_log/model/models"
-], function (UIComponent, Device, models) {
+	"zstd/zstd_log/model/models",
+	"zstd/zstd_log/model/DataCalls"
+], function (UIComponent, Device, models, DataCalls) {
 	"use strict";
 
 	return UIComponent.extend("zstd.zstd_log.Component", {
@@ -25,6 +26,26 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+		
+			this.oModelUserEntry = new sap.ui.model.json.JSONModel(
+				JSON.parse('{"email" : "" , "password" : "" , "name" : "" }')
+			);
+			this.oModelUserEntry.setDefaultBindingMode("TwoWay");	
+			
+			this.setModel(this.oModelUserEntry , "oModelUserEntry");
+
+				//before rendering the first route, read data
+				if(!this.ODataCallsObj){
+				//create new fda oDataCalls object
+					var ODataCallsObj = new DataCalls(	this.oModelUserEntry,
+														this.getModel("worklistView"),
+														this,
+														this.getModel("i18n").getResourceBundle()
+													);
+													
+					this.ODataCallsObj = ODataCallsObj;					
+				}
+			
 		}
 	});
 });

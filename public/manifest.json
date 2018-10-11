@@ -75,6 +75,18 @@
 				"name": "Targetlogview",
 				"pattern": "Routelogview",
 				"target": ["Targetlogview"]
+			}, {
+				"name": "ForgotPassword",
+				"pattern": "resetPassword/{routeEmail}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["ForgotPassword"]
+			}, {
+				"name": "Register",
+				"pattern": "newAccount",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Register"]
 			}],
 			"targets": {
 				"Targetlogview": {
@@ -82,6 +94,22 @@
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewName": "logview"
+				},
+				"Register": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Register",
+					"viewLevel": 2,
+					"title": "Register New Account"
+				},
+				"ForgotPassword": {
+					"viewType": "XML",
+					"transition": "fade",
+					"clearControlAggregation": false,
+					"viewName": "ForgotPassword",
+					"title": "Reset Password",
+					"viewLevel": 2
 				}
 			}
 		}
