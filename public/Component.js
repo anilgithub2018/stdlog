@@ -28,7 +28,7 @@ sap.ui.define([
 			this.setModel(models.createDeviceModel(), "device");
 		
 			this.oModelUserEntry = new sap.ui.model.json.JSONModel(
-				JSON.parse('{"email" : "" , "password" : "" , "name" : "" }')
+				JSON.parse('{"email" : "" , "password" : "" , "username" : "" }')
 			);
 			this.oModelUserEntry.setDefaultBindingMode("TwoWay");	
 			

@@ -21,9 +21,10 @@ sap.ui.define([
 		},
 		
 		onSignUp: function(oEvent){
-			this.OwnerComponent.ODataCallsObj.validateData('SignUp');
-			
-			var oLoginData = this.getView().getModel("oModelUserEntry").getData();
+			var vError = this.OwnerComponent.ODataCallsObj.validateData('SignUp');
+			if( !vError ) {
+				this.OwnerComponent.ODataCallsObj.saveUser();
+			}
 		},		
 
 		onResetPassword: function(oEvent){

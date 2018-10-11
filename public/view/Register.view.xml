@@ -10,8 +10,8 @@
 						columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
 							<Label text="{i18n>name}" required="true"/>
-							<Input id="name" value="{oModelUserEntry>/name}"
-									valueState="{mandatorySignup>/name}"
+							<Input id="name" value="{oModelUserEntry>/username}"
+									valueState="{mandatorySignup>/username}"
 									valueStateText="{i18n>EnterValue}"
 									/>							
 							<Label text="{i18n>email}" required="true"/>

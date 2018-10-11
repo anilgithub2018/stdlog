@@ -20,7 +20,7 @@ sap.ui.define([
 				//make oDataCalls
 				// this._oDataModel = new sap.ui.model.odata.ODataModel(oModel.sServiceUrl, true);
 				// this._oDataModel.setSizeLimit(10000);
-				
+				this.service_url = "https://stdtest2-217119.appspot.com";
 				this._oDataModel = new JSONModel();
 				
 				//adjust view for busy indicator
@@ -65,6 +65,40 @@ sap.ui.define([
 			
 			getJsonModel: function(){
 				return this._oLocalJsonMdl;	
+			},
+			
+			saveUser: function(){
+				debugger;
+				var that = this;
+				
+				that.vUserData = JSON.stringify( this._oDataResults.Login );
+				
+				if(location.hostname.indexOf('hana') !== -1 )
+					this.service_url = 'http://localhost:3000';
+					
+				var vServiceEndpoint = that.service_url + "/user/tenant/add";
+	
+				var aData = jQuery.ajax({
+	                type : "POST",
+	                crossDomain:true,
+	                contentType : "application/json; charset=utf-8",
+					url : vServiceEndpoint,
+					data : that.vUserData ,
+					dataType : "json",
+					async: true,
+					beforeSend: function(xhr) {
+						// xhr.setRequestHeader("Authorization", "Basic " + btoa(user + ":" + pwd));
+						// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+						that.showMessage(jqXHR.statusText);
+					},				
+	                success : function(data,textStatus, jqXHR) {
+						that.showMessage(data.username + " Saved Successfully");
+	                }
+	
+	            });
+            
 			},
 			
 			readEntitySet: function(vEntitySetName){
@@ -861,19 +895,21 @@ sap.ui.define([
 					$.each( this.oManFields, function( key, value ) {
 							this.oManFields[key] = 'None';
 
-							if(!vReset && (this._oDataResults.Login[key] === "" || this._oDataResults.Login[key] === 0 ))
-							{
-								this.oManFields[key] = 'Error';
-								this.validationError = true;
-							}
-							
-							if( key === "email" && this.validationError === false ){
-								if ( !this.formatter.validEmail(this._oDataResults.Login[key])){
+							if( !vReset ) { //in case of reset do not check anything
+								if( this._oDataResults.Login[key] === "" || this._oDataResults.Login[key] === 0 )
+								{
 									this.oManFields[key] = 'Error';
 									this.validationError = true;
-								}     
-							}
+								}
 								
+								if( key === "email" && this.validationError === false ){
+									if ( !this.formatter.validEmail(this._oDataResults.Login[key])){
+										this.oManFields[key] = 'Error';
+										this.validationError = true;
+									}     
+								}
+							}
+							
 					}.bind(this));
 
 				}
